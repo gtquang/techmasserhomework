@@ -15,5 +15,6 @@ provider "aws" {
 
 resource "aws_iam_user" "users" {
   count = length(var.user_names) //Dòng này để lặp qua từng phần tử của list
-  name  = "${var.user_names[count.index].name}_${var.user_names[count.index].department}"
+  name  = "${var.user_names[count.index].name}"
+  tags = var.user_names[count.index].tags
 }

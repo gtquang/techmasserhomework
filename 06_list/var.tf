@@ -2,18 +2,24 @@ variable "user_names" {
   description = "Create IAM users"
   type        = list(object({    //Định nghĩa kiểu object
     name = string,
-    department = string
+    tags = map(string)
   }))
   default     = [{ 
       name = "Paul"
-      department = "Sales"
+      tags = {
+        "department" = "Sales"
+      }
     },
     { 
       name = "John"
-      department = "Software"
+      tags = {
+        "department" = "Software"
+      }
     },
     { 
       name = "Hai"
-      department = "Accounting"
+      tags = {
+        "department" = "Accounting"
+      }
     }]
 }
